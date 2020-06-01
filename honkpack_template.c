@@ -45,7 +45,7 @@ void loding_bar(long int anzahl, long int ges)
 	{
 		fprintf(stderr, "-");
 	}*/
-	fprintf(stderr, "]  %.0f%%", pr);
+	fprintf(stderr, "%.0f%%", pr);
 	//fflush(stderr);
 }
 
