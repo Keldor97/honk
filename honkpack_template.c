@@ -91,7 +91,8 @@ int main(int argc, char **argv)
 	if (strcmp(argv[1], "-u") == 0)
 	{
 		while (read_byte(input, &b))
-		{
+		{	byte_count++;
+			loding_bar(byte_count, ges);
 			switch (state)
 			{
 			case STATE_IND:
