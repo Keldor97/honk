@@ -79,7 +79,6 @@ int main(int argc, char **argv)
 
 	// calculating the size of the file
 	long int ges = ftell(input);
-	fprintf(stderr, "%li", ges);
 
 	fseek(input, 0L, SEEK_SET);
 
