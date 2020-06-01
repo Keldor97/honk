@@ -35,18 +35,8 @@ void loding_bar(long int anzahl, long int ges)
 {
 	float pr = (float)anzahl / (float)ges * 100;
 	fprintf(stderr, "\r");
-	/*fprintf(stderr, "[");
-	int i;
-	for (i = 1; i <= ((int)pr / 5); i++)
-	{
-		fprintf(stderr, "#");
-	}
-	for (i = i; i <= 20; i++)
-	{
-		fprintf(stderr, "-");
-	}*/
 	fprintf(stderr, "%.0f%%", pr);
-	//fflush(stderr);
+	fflush(stderr);
 }
 
 typedef enum __state_t__
@@ -64,15 +54,18 @@ int main(int argc, char **argv)
 	if (input == NULL || output == NULL)
 	{
 		fprintf(stderr, "Can not open the file!\n");
+		exit(EXIT_FAILURE);
 	}
 
 	if (argc > 2)
 	{
 		fprintf(stderr, "Too many arguments!\n usage: honkpack -c|-u <input >output\n");
+		return 1;
 	}
 	if (argc < 2)
 	{
 		fprintf(stderr, "Too few arguments!\n usage: honkpack -c|-u <input >output\n ");
+		return 1;
 	}
 
 	fseek(input, 0L, SEEK_END);
@@ -91,7 +84,8 @@ int main(int argc, char **argv)
 	if (strcmp(argv[1], "-u") == 0)
 	{
 		while (read_byte(input, &b))
-		{	byte_count++;
+		{
+			byte_count++;
 			loding_bar(byte_count, ges);
 			switch (state)
 			{
@@ -214,9 +208,11 @@ int main(int argc, char **argv)
 	else
 	{
 		fprintf(stderr, "wrong argument!\n honkpack -c|-u <input >output\n");
+		return 1;
 	}
 
 	//Close the files:
+	fprintf(stderr, "\n");
 	fclose(input);
 	fclose(output);
 }
