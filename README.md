@@ -1,6 +1,6 @@
 # honk
 
-'usage: honkpack -c|-u <input >output'
+<p>usage: honkpack -c|-u <input >output<p> <\ br>
 
--c: convert to honk
+-c: convert to honk <\br>
 -u: unconvert
