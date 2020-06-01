@@ -68,11 +68,11 @@ int main(int argc, char **argv)
 
 	if (argc > 2)
 	{
-		fprintf(stderr, "Too many arguments!\n usage: \.honkpack -c|-u <input >output\n");
+		fprintf(stderr, "Too many arguments!\n usage: honkpack -c|-u <input >output\n");
 	}
 	if (argc < 2)
 	{
-		fprintf(stderr, "Too few arguments!\n usage: \.honkpack -c|-u <input >output\n ");
+		fprintf(stderr, "Too few arguments!\n usage: honkpack -c|-u <input >output\n ");
 	}
 
 	fseek(input, 0L, SEEK_END);
@@ -213,7 +213,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		fprintf(stderr, "wrong argument!\n \.honkpack -c|-u <input >output\n");
+		fprintf(stderr, "wrong argument!\n honkpack -c|-u <input >output\n");
 	}
 
 	//Close the files:
